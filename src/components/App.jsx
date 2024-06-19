@@ -6,6 +6,7 @@ import {
 	getListTopTenSorted,
 	playSound,
 	getDateCreation,
+	openKeyboard
 } from '../utils/helpers.js'
 import mover from '../assets/sons/mover.mp3'
 import perdeu from '../assets/sons/perdeu.mp3'
@@ -46,6 +47,7 @@ const App = () => {
 	const [endTime, setEndTime] = useState(null)
 	// Estado para o tempo decorrido durante o jogo.
 	const [elapsedTime, setElapsedTime] = useState(null)
+
 	/**
 	 * Função para finalizar o jogo, calcular o tempo decorrido e atualizar a lista dos 10 melhores tempos.
 	 */
@@ -67,6 +69,7 @@ const App = () => {
 		}
 		setIsPlaying(false)
 	}
+
 	/**
 	 * Função para iniciar o jogo, gerar uma nova sequência e resetar os estados relacionados ao jogo.
 	 */
@@ -80,6 +83,7 @@ const App = () => {
 		const start = new Date()
 		setStartTime(start)
 		setElapsedTime(null)
+		openKeyboard()
 	}
 
 	/**
@@ -87,6 +91,7 @@ const App = () => {
 	 */
 	const toggleVisibility = () => {
 		setIsVisible(!isVisible)
+		if (!isVisible) openKeyboard()
 	}
 
 	/**

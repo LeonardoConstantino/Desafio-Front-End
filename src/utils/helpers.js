@@ -102,3 +102,48 @@ export const generateSequence = (length) => {
 		() => letters[Math.floor(Math.random() * letters.length)]
 	)
 }
+
+/**
+ * Verifica se o dispositivo atual é um dispositivo móvel.
+ * 
+ * @returns {boolean} Retorna `true` se o dispositivo for móvel, caso contrário `false`.
+ * 
+ * @example
+ * const mobile = isMobile();
+ * console.log(mobile); // true ou false
+ */
+const isMobile = () => {
+	// Verifica se o user agent contém 'Mobi' ou 'Android' ou se a largura da janela é menor ou igual a 768 pixels.
+	return /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+  }
+  
+  /**
+   * Abre o teclado virtual em dispositivos móveis.
+   * 
+   * @example
+   * openKeyboard();
+   * // Em um dispositivo móvel, o teclado virtual será aberto temporariamente.
+   */
+  export const openKeyboard = () => {
+	// Verifica se o dispositivo é móvel.
+	if (isMobile()) {
+	  // Cria um elemento de input temporário.
+	  const tempInput = document.createElement('input');
+	  
+	  // Define a posição do input temporário para estar fora da tela.
+	  tempInput.style.position = 'absolute';
+	  tempInput.style.top = '-1000px';
+	  
+	  // Adiciona o input temporário ao body do documento.
+	  document.body.appendChild(tempInput);
+	  
+	  // Define o foco no input temporário para abrir o teclado virtual.
+	  tempInput.focus();
+	  
+	  // Remove o input temporário após 1 segundo.
+	  setTimeout(() => {
+		document.body.removeChild(tempInput);
+	  }, 1000);
+	}
+  }
+  
