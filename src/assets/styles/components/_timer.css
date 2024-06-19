@@ -1,0 +1,29 @@
+.timer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.timer progress {
+    width: 250px; /* Largura fixa para a barra de progresso */
+}
+
+/* Estilos para a barra de progresso */
+.timer progress::-webkit-progress-value {
+    border-radius: 12px; /* Bordas arredondadas para a parte preenchida da barra de progresso */
+    transition: width 0.5s ease-in-out; /* Transição mais suave para mudanças na largura */
+}
+
+.timer progress::-webkit-progress-bar {
+    border-radius: 12px; /* Bordas arredondadas para a barra de progresso total */
+}
+
+/* Estilos adicionais para compatibilidade com outros navegadores */
+.timer progress::-moz-progress-bar {
+    border-radius: 12px; /* Bordas arredondadas para o Firefox */
+}
+
+.timer progress::-ms-fill {
+    border-radius: 12px; /* Bordas arredondadas para o Edge */
+}

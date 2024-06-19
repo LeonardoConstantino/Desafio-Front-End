@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+Buginese:400,700');
+
+/* Definição da fonte para todo o documento */
+body {
+  font-family: 'Noto Sans Buginese', sans-serif;
+  font-weight: 400;
+}
+
+/* Definição da fonte para cabeçalhos */
+h1, h2, h3, h4, h5 {
+  font-family: 'Noto Sans Buginese', sans-serif;
+  font-weight: 700;
+}
+html { font-size: 100%; }
+/* Tamanhos de fonte para diferentes níveis de cabeçalho */
+h1 { font-size: 2.489rem; /* ~40px */ }
+h2 { font-size: 2.074rem; /* ~33px */ }
+h3 { font-size: 1.728rem; /* ~28px */ }
+h4 { font-size: 1.440rem; /* ~23px */ }
+h5 { font-size: 1.200rem; /* ~19px */ }
+
+/* Tamanho de fonte para elementos pequenos */
+small { font-size: 0.833rem; /* ~13px */ }
+
+/* Ajuste responsivo para dispositivos menores */
+@media screen and (max-width: 480px) {
+  html { font-size: 70%; } /* Reduz o tamanho da fonte para 70% do original */
+}

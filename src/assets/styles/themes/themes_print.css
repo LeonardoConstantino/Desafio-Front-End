@@ -1,0 +1,9 @@
+@media print {
+    * {
+        box-shadow: none; /* Remove sombras de todas as caixas */
+    }
+    
+    body {
+        min-width: auto; /* Redefine a largura mínima do corpo */
+    }
+}
