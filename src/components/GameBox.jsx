@@ -72,7 +72,7 @@ export const GameBox = ({
 							isPlaying
 								? () => {
 										setIsPlaying(false)
-								  }
+								}
 								: startGame
 						}
 					>
