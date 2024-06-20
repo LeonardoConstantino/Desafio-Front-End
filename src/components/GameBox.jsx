@@ -41,7 +41,7 @@ export const GameBox = ({
 }) => {
 	return (
 		<div className="game-backdrop">
-			<div className="game-box" style={isMobile() && {top:'50px'}}>
+			<div className="game-box" style={isMobile()?{top:'50px'}:{top:'auto'}}>
 				<button
 					className="game_close"
 					onClick={() => {
