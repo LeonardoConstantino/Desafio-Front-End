@@ -112,7 +112,7 @@ export const generateSequence = (length) => {
  * const mobile = isMobile();
  * console.log(mobile); // true ou false
  */
-const isMobile = () => {
+export const isMobile = () => {
 	// Verifica se o user agent contém 'Mobi' ou 'Android' ou se a largura da janela é menor ou igual a 768 pixels.
 	return /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
   }
@@ -124,7 +124,7 @@ const isMobile = () => {
    * openKeyboard();
    * // Em um dispositivo móvel, o teclado virtual será aberto temporariamente.
    */
-  export const openKeyboard = () => {
+  export const openKeyboard = (time) => {
 	// Verifica se o dispositivo é móvel.
 	if (isMobile()) {
 	  // Cria um elemento de input temporário.
@@ -143,7 +143,7 @@ const isMobile = () => {
 	  // Remove o input temporário após 1 segundo.
 	  setTimeout(() => {
 		document.body.removeChild(tempInput);
-	  }, 1000);
+	  }, time);
 	}
   }
   

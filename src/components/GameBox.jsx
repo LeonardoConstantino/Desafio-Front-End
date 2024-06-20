@@ -1,5 +1,6 @@
 import { Timer } from './Timer.jsx'
 import { Indicator } from './Indicator.jsx'
+import { isMobile } from '../utils/helpers.js'
 
 /**
  * Componente GameBox que encapsula a lógica e a interface do jogo.
@@ -40,7 +41,7 @@ export const GameBox = ({
 }) => {
 	return (
 		<div className="game-backdrop">
-			<div className="game-box">
+			<div className="game-box" style={isMobile() && {top:'50px'}}>
 				<button
 					className="game_close"
 					onClick={() => {

@@ -83,7 +83,7 @@ const App = () => {
 		const start = new Date()
 		setStartTime(start)
 		setElapsedTime(null)
-		openKeyboard()
+		openKeyboard(timeToPlay)
 	}
 
 	/**
@@ -91,7 +91,6 @@ const App = () => {
 	 */
 	const toggleVisibility = () => {
 		setIsVisible(!isVisible)
-		if (!isVisible) openKeyboard()
 	}
 
 	/**
