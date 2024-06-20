@@ -16,28 +16,30 @@ import { getListTopTenSorted } from '../utils/helpers.js'
  * <TableTopTen list={topTenList} />
  */
 export const TableTopTen = ({ list }) => {
-	return (
-		<>
-			<hr />
-			<h2>Top 10 melhores tempos</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>Top</th>
-						<th>Data</th>
-						<th>Tempo</th>
-					</tr>
-				</thead>
-				<tbody>
-					{getListTopTenSorted(list).map(({ date, time }, index) => (
-						<tr key={index}>
-							<td>{index + 1}º</td>
-							<td>{date}</td>
-							<td>{time}</td>
-						</tr>
-					))}
-				</tbody>
-			</table>
-		</>
-	)
+  const sortedList = getListTopTenSorted(list)
+
+  return (
+    <>
+      <hr />
+      <h2>Top 10 melhores tempos</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Top</th>
+            <th>Data</th>
+            <th>Tempo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedList.map(({ date, time }, index) => (
+            <tr key={`${date}-${index}`}>
+              <td>{index + 1}º</td>
+              <td>{date}</td>
+              <td>{parseFloat(time).toFixed(2)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  )
 }

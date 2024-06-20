@@ -17,16 +17,13 @@
  * // ]
  */
 export const getListTopTenSorted = (list) => {
-	// Cria uma cópia da lista e a ordena com base no tempo (em ordem crescente)
-	const sortedList = [...list.sort((a, b) => +a.time - +b.time)]
+  // Cria uma cópia da lista e a ordena com base no tempo (em ordem crescente)
+  const sortedList = [...list].sort(
+    (a, b) => parseFloat(a.time) - parseFloat(b.time)
+  )
 
-	// Limita o tamanho da lista se maior que 10 ordenada a 10 elementos
-	if (sortedList > 0) {
-		sortedList.length = 10
-	}
-
-	// Retorna a lista ordenada e limitada
-	return sortedList
+  // Retorna a lista ordenada e limita o tamanho da lista se maior que 10 ordenada a 10 elementos
+  return sortedList.slice(0, 10)
 }
 
 /**
@@ -42,20 +39,20 @@ export const getListTopTenSorted = (list) => {
  * // Reproduz o som a partir do arquivo 'path/to/sound.mp3' com volume 0.5, em loop, iniciando a partir de 10 segundos.
  */
 export const playSound = (src, volume = 1, loop = false, currentTime = 0) => {
-	// Cria um novo objeto de áudio com a fonte especificada.
-	const audio = new Audio(src)
+  // Cria um novo objeto de áudio com a fonte especificada.
+  const audio = new Audio(src)
 
-	// Define o tempo inicial de reprodução do som.
-	audio.currentTime = currentTime
+  // Define o tempo inicial de reprodução do som.
+  audio.currentTime = currentTime
 
-	// Define se o som deve ser reproduzido em loop.
-	audio.loop = loop
+  // Define se o som deve ser reproduzido em loop.
+  audio.loop = loop
 
-	// Define o volume do som.
-	audio.volume = volume
+  // Define o volume do som.
+  audio.volume = volume
 
-	// Inicia a reprodução do som.
-	audio.play()
+  // Inicia a reprodução do som.
+  audio.play()
 }
 
 /**
@@ -69,15 +66,15 @@ export const playSound = (src, volume = 1, loop = false, currentTime = 0) => {
  * // Exemplo de saída: '19 de junho de 2024 14:32:10'
  */
 export const getDateCreation = () => {
-	// Cria um novo objeto Date e o formata de acordo com o padrão 'pt-BR'
-	return new Intl.DateTimeFormat('pt-BR', {
-		day: 'numeric',
-		month: 'long',
-		year: 'numeric',
-		hour: 'numeric',
-		minute: 'numeric',
-		second: 'numeric',
-	}).format(new Date())
+  // Cria um novo objeto Date e o formata de acordo com o padrão 'pt-BR'
+  return new Intl.DateTimeFormat('pt-BR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  }).format(new Date())
 }
 
 /**
@@ -92,58 +89,57 @@ export const getDateCreation = () => {
  * // Exemplo de saída: ["4", "9", "2", "5", "1"]
  */
 export const generateSequence = (length) => {
-	// Define os caracteres permitidos para a sequência.
-	const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-	// const letters = '1234567890'
+  // Define os caracteres permitidos para a sequência.
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  // const letters = '1234567890'
 
-	// Cria uma array com o comprimento especificado, preenchida com caracteres aleatórios.
-	return Array.from(
-		{ length },
-		() => letters[Math.floor(Math.random() * letters.length)]
-	)
+  // Cria uma array com o comprimento especificado, preenchida com caracteres aleatórios.
+  return Array.from(
+    { length },
+    () => letters[Math.floor(Math.random() * letters.length)]
+  )
 }
 
 /**
  * Verifica se o dispositivo atual é um dispositivo móvel.
- * 
+ *
  * @returns {boolean} Retorna `true` se o dispositivo for móvel, caso contrário `false`.
- * 
+ *
  * @example
  * const mobile = isMobile();
  * console.log(mobile); // true ou false
  */
 export const isMobile = () => {
-	// Verifica se o user agent contém 'Mobi' ou 'Android' ou se a largura da janela é menor ou igual a 768 pixels.
-	return /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+  // Verifica se o user agent contém 'Mobi' ou 'Android' ou se a largura da janela é menor ou igual a 768 pixels.
+  return /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768
+}
+
+/**
+ * Abre o teclado virtual em dispositivos móveis.
+ *
+ * @example
+ * openKeyboard();
+ * // Em um dispositivo móvel, o teclado virtual será aberto temporariamente.
+ */
+export const openKeyboard = (time) => {
+  // Verifica se o dispositivo é móvel.
+  if (isMobile()) {
+    // Cria um elemento de input temporário.
+    const tempInput = document.createElement('input')
+
+    // Define a posição do input temporário para estar fora da tela.
+    tempInput.style.position = 'absolute'
+    tempInput.style.top = '-1000px'
+
+    // Adiciona o input temporário ao body do documento.
+    document.body.appendChild(tempInput)
+
+    // Define o foco no input temporário para abrir o teclado virtual.
+    tempInput.focus()
+
+    // Remove o input temporário após 1 segundo.
+    setTimeout(() => {
+      document.body.removeChild(tempInput)
+    }, time * 1000)
   }
-  
-  /**
-   * Abre o teclado virtual em dispositivos móveis.
-   * 
-   * @example
-   * openKeyboard();
-   * // Em um dispositivo móvel, o teclado virtual será aberto temporariamente.
-   */
-  export const openKeyboard = (time) => {
-	// Verifica se o dispositivo é móvel.
-	if (isMobile()) {
-	  // Cria um elemento de input temporário.
-	  const tempInput = document.createElement('input');
-	  
-	  // Define a posição do input temporário para estar fora da tela.
-	  tempInput.style.position = 'absolute';
-	  tempInput.style.top = '-1000px';
-	  
-	  // Adiciona o input temporário ao body do documento.
-	  document.body.appendChild(tempInput);
-	  
-	  // Define o foco no input temporário para abrir o teclado virtual.
-	  tempInput.focus();
-	  
-	  // Remove o input temporário após 1 segundo.
-	  setTimeout(() => {
-		document.body.removeChild(tempInput);
-	  }, time);
-	}
-  }
-  
+}

@@ -9,23 +9,20 @@
  * <Indicator sequence={['A', 'B', 'C']} currentIndex={1} isPlaying={true} />
  */
 export const Indicator = ({ sequence, currentIndex, isPlaying }) => {
-	return (
-		<div className="indicator">
-			{isPlaying &&
-				sequence.map((letra, index) => (
-					<span
-						className={
-							index < currentIndex
-								? 'active'
-								: index === currentIndex
-								? 'current'
-								: ''
-						}
-						key={index}
-					>
-						{letra}
-					</span>
-				))}
-		</div>
-	)
+  const getClassName = (index) => {
+    if (index < currentIndex) return 'active'
+    if (index === currentIndex) return 'current'
+    return ''
+  }
+
+  return (
+    <div className="indicator">
+      {isPlaying &&
+        sequence.map((letra, index) => (
+          <span className={getClassName(index)} key={index}>
+            {letra}
+          </span>
+        ))}
+    </div>
+  )
 }

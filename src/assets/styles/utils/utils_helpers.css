@@ -1,9 +1,9 @@
 hr {
-	width: 80%;
+  width: 80%;
 }
 
 .pulsate-bck {
-	animation: pulsate-bck 700ms ease-in-out 3s 4 both;
+  animation: pulsate-bck 700ms ease-in-out 3s 4 both;
 }
 
 /* ----------------------------------------------
@@ -19,16 +19,16 @@ hr {
  * ----------------------------------------
  */
 @keyframes pulsate-bck {
-	0% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-	}
-	50% {
-		-webkit-transform: scale(0.9);
-		transform: scale(0.9);
-	}
-	100% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-	}
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }

@@ -1,45 +1,45 @@
 table {
-    margin-top: 20px; /* Margem superior fixa */
-    table-layout: auto; /* Layout automático da tabela */
-    width: 100%; /* Largura total da tabela */
-    text-align: center; /* Alinhamento central do texto */
+  margin-top: 20px; /* Margem superior fixa */
+  table-layout: auto; /* Layout automático da tabela */
+  width: 100%; /* Largura total da tabela */
+  text-align: center; /* Alinhamento central do texto */
 }
 
 table thead {
-    font-weight: bold; /* Fonte em negrito para o cabeçalho */
+  font-weight: bold; /* Fonte em negrito para o cabeçalho */
 }
 
 table th,
 table td {
-    border: 1px solid #ddd; /* Borda de 1px sólida cinza para células */
-    padding: 6px 3px; /* Preenchimento interno de 6px vertical e 3px horizontal */
-    text-align: center; /* Alinhamento central do texto */
-    vertical-align: middle; /* Alinhamento vertical central */
+  border: 1px solid #ddd; /* Borda de 1px sólida cinza para células */
+  padding: 6px 3px; /* Preenchimento interno de 6px vertical e 3px horizontal */
+  text-align: center; /* Alinhamento central do texto */
+  vertical-align: middle; /* Alinhamento vertical central */
 }
 
 @media screen and (max-width: 480px) {
-    table {
-        margin: 2% auto; /* Margem ajustada para telas menores */
-    }
+  table {
+    margin: 2% auto; /* Margem ajustada para telas menores */
+  }
 
-    table thead {
-        display: none; /* Oculta o cabeçalho em telas menores */
-    }
+  table thead {
+    display: none; /* Oculta o cabeçalho em telas menores */
+  }
 
-    table th,
-    table td {
-        padding: 3px; /* Reduz o preenchimento das células */
-    }
+  table th,
+  table td {
+    padding: 3px; /* Reduz o preenchimento das células */
+  }
 }
 
 @media only screen and (min-width: 600px) {
-    table tbody tr td:nth-child(1) {
-        width: 10%; /* Largura da primeira coluna */
-    }
-    table tbody tr td:nth-child(2) {
-        width: 60%; /* Largura da segunda coluna */
-    }
-    table tbody tr td:nth-child(3) {
-        width: 15%; /* Largura da terceira coluna */
-    }
+  table tbody tr td:nth-child(1) {
+    width: 10%; /* Largura da primeira coluna */
+  }
+  table tbody tr td:nth-child(2) {
+    width: 60%; /* Largura da segunda coluna */
+  }
+  table tbody tr td:nth-child(3) {
+    width: 15%; /* Largura da terceira coluna */
+  }
 }

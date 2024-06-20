@@ -29,58 +29,62 @@ import { isMobile } from '../utils/helpers.js'
  * />
  */
 export const GameBox = ({
-	isPlaying,
-	sequence,
-	currentIndex,
-	message,
-	startGame,
-	timeLeft,
-	timeToPlay,
-	toggleVisibility,
-	setIsPlaying,
+  isPlaying,
+  sequence,
+  currentIndex,
+  message,
+  startGame,
+  timeLeft,
+  timeToPlay,
+  toggleVisibility,
+  setIsPlaying,
 }) => {
-	return (
-		<div className="game-backdrop">
-			<div className="game-box" style={isMobile()?{top:'50px'}:{top:'auto'}}>
-				<button
-					className="game_close"
-					onClick={() => {
-						toggleVisibility()
-						setIsPlaying(false)
-					}}
-				>
-					&times;
-				</button>
-				<i
-					className={
-						isPlaying ? 'slide-in-bottom' : 'rotate-scale-up'
-					}
-				></i>
-				<div className="game">
-					<Indicator
-						sequence={sequence}
-						currentIndex={currentIndex}
-						isPlaying={isPlaying}
-					/>
-					{isPlaying ? (
-						<Timer timeLeft={timeLeft} timeToPlay={timeToPlay} />
-					) : (
-						message && <h4>{message}</h4>
-					)}
-					<button
-						className={isPlaying ? '' : 'pulsate-bck'}
-						onClick={
-							isPlaying
-								? () => {
-										setIsPlaying(false)
-								}
-								: startGame
-						}
-					>
-						{isPlaying ? 'Reiniciar jogo' : 'Iniciar Jogo'}
-					</button>
-				</div>
-			</div>
-		</div>
-	)
+  const handleButtonClick = () => {
+    toggleVisibility()
+    setIsPlaying(false)
+  }
+
+  const handleGameButtonClick = () => {
+    if (isPlaying) {
+      setIsPlaying(false)
+    } else {
+      startGame()
+    }
+  }
+
+  const getIconClassName = () => {
+    return isPlaying ? 'slide-in-bottom' : 'rotate-scale-up'
+  }
+
+  return (
+    <div className="game-backdrop">
+      <div className="game-box" style={{ top: isMobile() ? '50px' : 'auto' }}>
+        <button className="game_close" onClick={handleButtonClick}>
+          &times;
+        </button>
+
+        <i className={getIconClassName()}></i>
+
+        <div className="game">
+          <Indicator
+            sequence={sequence}
+            currentIndex={currentIndex}
+            isPlaying={isPlaying}
+          />
+          {isPlaying ? (
+            <Timer timeLeft={timeLeft} timeToPlay={timeToPlay} />
+          ) : (
+            message && <h4>{message}</h4>
+          )}
+
+          <button
+            className={isPlaying ? '' : 'pulsate-bck'}
+            onClick={handleGameButtonClick}
+          >
+            {isPlaying ? 'Reiniciar jogo' : 'Iniciar Jogo'}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
 }

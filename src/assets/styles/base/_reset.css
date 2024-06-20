@@ -1,21 +1,21 @@
 html {
-	box-sizing: border-box;
-	font-size: 16px;
-	margin: 0 auto;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0 auto;
 }
 
 * {
-	scroll-behavior: smooth;
-	outline: none;
-	border: none;
-	font-size: 16px;
-	font-family: 'Kanit', sans-serif;
+  scroll-behavior: smooth;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  font-family: 'Kanit', sans-serif;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body,
@@ -30,34 +30,34 @@ ol,
 ul,
 a,
 img {
-	margin: 0;
-	padding: 0;
-	font-weight: normal;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
 }
 
 ol,
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 a:link,
 a:visited {
-	color: #fff;
-	text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 body {
-	padding-inline: 1%;
+  padding-inline: 1%;
 }
 
 #root {
-	max-width: 1280px;
-	margin: 0 auto;
-	padding: 2rem;
-	text-align: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }

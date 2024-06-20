@@ -8,10 +8,13 @@
  * <Timer timeLeft={30} timeToPlay={60} />
  */
 export const Timer = ({ timeLeft, timeToPlay }) => {
-	return (
-		<label className="timer">
-			<progress value={timeLeft / timeToPlay} max="1" />
-			<span>{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</span>
-		</label>
-	)
+  // Calcula a porcentagem de tempo restante para a barra de progresso
+  const progressValue = timeLeft / timeToPlay
+
+  return (
+    <label className="timer">
+      <progress value={progressValue} max="1" />
+      <span>{timeLeft < 10 ? `0${timeLeft}` : timeLeft}</span>
+    </label>
+  )
 }
