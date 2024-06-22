@@ -4,6 +4,8 @@
 
 [Detalhes da arquitetura de arquivos](https://github.com/LeonardoConstantino/Desafio-Front-End/blob/main/estrutura%20de%20arquivos.md)
 
+[Requisitos do desafio](https://github.com/cidadealtarp/Desafio/blob/master/FRONTEND.md)
+
 ## Descrição
 
 Minigame feito em react seguindo os critérios do desafio
